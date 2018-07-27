@@ -32,15 +32,15 @@
 - 主要思路为：请求对象销毁，释放该对象的所有请求。因此，我们只需要设计一个请求自动释放类即可。故请求在设计的时候，需要带入请求自动释放类。而这个请求自动释放类类，可以通过runtime绑定到objc上，也就是请求对象上。这样，在创建请求的时候，就将请求对象的请求，“绑定”到请求自动释放类上，进而释放请求。相当于一个桥，一边连接着请求对象，一边连接着对象所持有的请求，调用者走了，桥就处理调用者使用过的请求。
 
 ---
-## 海那边Network
+## MyNetwork
 
 > ### 主要文件为如下
-- 连接层：HNBAFNetwork
-- 扩展层：HNBRequestManager
-- 业务接口层：HNBDataFetcher
-- 业务数据层：HNBDataHandler
+- 连接层：MyAFNetwork
+- 扩展层：MyRequestManager
+- 业务接口层：MyDataFetcher
+- 业务数据层：MyDataHandler
 
 > ### 使用：
-- 数据请求业务，需通过HNBDataFetcher扩展具体的业务api。如果有特殊的数据处理，可在HNBDataHandler中处理，默认不做处理。具体可参考HNBDataFetcher头文件方法。
+- 数据请求业务，需通过MyDataFetcher扩展具体的业务api。如果有特殊的数据处理，可在MyDataHandler中处理，默认不做处理。具体可参考MyDataFetcher头文件方法。
 
 
